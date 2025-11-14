@@ -1,0 +1,156 @@
+/*
+    Частина 1: Оформлення та типографіка
+*/
+
+/* 3. Застосування шрифтів та базові скидання */
+body {
+    font-family: 'Roboto', sans-serif; /* Шрифт для основного тексту */
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif; /* Шрифт для заголовків */
+    /* 4. Властивості тексту */
+    color: white;
+    font-size: 2.5em; 
+    text-align: center;
+    margin: 0;
+}
+
+nav {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+/* 4, 5. Стилі для основного тексту та блокової моделі */
+.main-content {
+    background-color: white;
+    /* 5. Налаштування padding */
+    padding: 30px; 
+    /* 5. Налаштування margin (відступи від країв) */
+    margin: 20px 10px 10px 10px; 
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #007bff;
+    font-size: 1.8em;
+    margin-top: 0;
+}
+
+.main-content p {
+    /* 4. Властивості тексту */
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6; /* Міжрядковий інтервал для кращої читабельності */
+    text-align: justify;
+}
+
+.important-note {
+    font-style: italic;
+    font-weight: bold;
+    color: #dc3545;
+    display: block;
+    margin-top: 15px;
+}
+
+/* 4, 5. Стилі для бічної панелі */
+.sidebar {
+    background-color: #e9ecef;
+    /* 5. Налаштування padding */
+    padding: 20px;
+    /* 5. Налаштування margin */
+    margin: 20px 10px 10px 10px;
+    border-left: 3px solid #007bff;
+}
+
+footer {
+    background-color: #343a40;
+    color: #bbb;
+    text-align: center;
+    padding: 15px;
+    clear: both; /* Очищення плаваючих елементів, якщо вони були */
+}
+
+/*
+    Частина 2: Створення простого адаптивного макету (Flexbox)
+*/
+
+/* 1, 2. Використання властивостей Flexbox для контейнера */
+.flex-container {
+    display: flex; /* Активує Flexbox */
+    /* 3. Налаштування напрямку та обгортання */
+    flex-direction: row; /* Розташування елементів в рядок (за замовчуванням на десктопі) */
+    flex-wrap: wrap; /* Дозволяє елементам переноситися, якщо не вистачає місця */
+    max-width: 1200px; /* Обмеження ширини для центрування */
+    margin: 0 auto; /* Центрування контейнера на сторінці */
+}
+
+/* 2. Налаштування розмірів елементів Flex */
+.main-content {
+    flex: 3; /* Займає 3 частини місця */
+    min-width: 300px; /* Мінімальна ширина для запобігання надмірному стисненню */
+}
+
+.sidebar {
+    flex: 1; /* Займає 1 частину місця (буде в 3 рази вужчим за main-content) */
+    min-width: 200px;
+}
+
+
+/* 4. Адаптивність (Media Queries) */
+/* Стилі, що застосовуються, коли ширина екрана стає 768px або менше */
+@media screen and (max-width: 768px) {
+    
+    /* Змінюємо напрямок на стовпець: бічна панель тепер під основним контентом */
+    .flex-container {
+        flex-direction: column; 
+    }
+    
+    /* Встановлюємо 100% ширини для обох елементів на мобільному пристрої */
+    .main-content, .sidebar {
+        flex: 100%; /* Займає всю доступну ширину */
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    
+    /* Прибираємо лінію, що відділяла бічну панель зліва */
+    .sidebar {
+        border-left: none;
+        border-top: 3px solid #007bff; /* Додаємо лінію зверху */
+    }
+    
+    h1 {
+        font-size: 1.8em; /* Зменшуємо розмір заголовка на мобільних */
+    }
+    
+    .main-content p {
+        text-align: left; /* Краще вирівнювання для вузьких екранів */
+    }
+}

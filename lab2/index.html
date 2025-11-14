@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Розклад Занять та Форма Зворотного Зв'язку</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f7f6;
+        }
+
+        /* Стилі для Таблиці */
+        #schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        #schedule-table th, #schedule-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        #schedule-table th {
+            background-color: #4CAF50; /* Колір фону для заголовків */
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        #schedule-table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .break {
+            background-color: #ff9800;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Стилі для Форми */
+        #feedback-form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        .form-group input[type="text"], 
+        .form-group input[type="email"], 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Включає padding і border у загальну ширину */
+        }
+        .radio-group label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+        }
+        button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Розклад Занять на Тиждень</h1>
+    </header>
+    <table id="schedule-table">
+        <thead>
+            <tr>
+                <th colspan="2">Час</th>
+                <th>Понеділок</th>
+                <th>Вівторок</th>
+                <th>Середа</th>
+                <th>Четвер</th>
+                <th>П'ятниця</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>1 Пара</th>
+                <td>8:30 - 10:00</td>
+                <td>Математичний аналіз (Лекція)</td>
+                <td>Програмування (Практика)</td>
+                <td>Англійська мова (Практика)</td>
+                <td>Фізика (Лекція)</td>
+                <td>Веб-дизайн (Лекція)</td>
+            </tr>
+            <tr>
+                <th>2 Пара</th>
+                <td>10:20 - 11:50</td>
+                <td>Математичний аналіз (Практика)</td>
+                <td rowspan="2">**Програмування** (Лаб.)<br>Ауд. 305</td> 
+                <td>Фізична культура</td>
+                <td>**Фізика** (Лаб.)<br>Ауд. 401</td>
+                <td>Веб-дизайн (Практика)</td>
+            </tr>
+            <tr>
+                <th>3 Пара</th>
+                <td>12:10 - 13:40</td>
+                <td>Історія України (Лекція)</td>
+                <td>Економіка (Лекція)</td>
+                <td>Філософія (Семінар)</td>
+                <td>Захист Вітчизни</td>
+            </tr>
+            <tr>
+                <td colspan="7" class="break">ОБІДНЯ ПЕРЕРВА (13:40 - 14:30)</td>
+            </tr>
+            <tr>
+                <th>4 Пара</th>
+                <td>14:30 - 16:00</td>
+                <td>Бази даних (Лекція)</td>
+                <td>Бази даних (Практика)</td>
+                <td>Економіка (Практика)</td>
+                <td colspan="2">**Вільний час**</td> </tr>
+            <tr>
+                <th>5 Пара</th>
+                <td>16:20 - 17:50</td>
+                <td><small>Самостійна робота</small></td>
+                <td><small>Консультація</small></td>
+                <td><small>Клуб програмістів</small></td>
+                <td><small>Вільний час</small></td>
+                <td><small>Вільний час</small></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <section id="feedback-form">
+        <h2>Форма Зворотного Зв'язку</h2>
+        <form action="/submit_feedback" method="post">
+            
+            <div class="form-group">
+                <label for="pib">Ваше ПІБ:</label>
+                <input type="text" id="pib" name="pib" required> </div>
+
+            <div class="form-group">
+                <label for="email">Email для відповіді:</label>
+                <input type="email" id="email" name="email" required> </div>
+
+            <div class="form-group">
+                <label>Тема звернення:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="topic" value="consultation" required> 
+                        Консультація
+                    </label>
+                    <label>
+                        <input type="radio" name="topic" value="task_question"> 
+                        Питання по завданню
+                    </label>
+                    <label>
+                        <input type="radio" name="topic" value="technical_issue"> 
+                        Технічне питання
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="group">Ваш курс/група:</label>
+                <select id="group" name="group" required> <option value="" disabled selected>-- Оберіть групу --</option>
+                    <option value="k1_g1">Курс 1, Група 1</option>
+                    <option value="k1_g2">Курс 1, Група 2</option>
+                    <option value="k2_g1">Курс 2, Група 1</option>
+                    <option value="other">Інше</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Текст звернення:</label>
+                <textarea id="message" name="message" rows="5" required></textarea> </div>
+
+            <button type="submit">Відправити дані</button>
+        </form>
+    </section>
+
+</body>
+</html>
