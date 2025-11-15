@@ -1,0 +1,120 @@
+/* --- 1. Скидання та Базові Налаштування --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6; /* Легкий фон */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* --- 2. Універсальні Класи --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* --- 3. Хедер та Футер (Фірмовий Стиль) --- */
+.header {
+    background-color: #2c3e50; /* Темний фірмовий колір */
+    color: #ecf0f1;
+    padding: 40px 0;
+    text-align: center;
+    border-bottom: 5px solid #3498db; /* Акцентний колір */
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    opacity: 0.8;
+}
+
+.footer {
+    background-color: #333;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+/* --- 4. Основний Контент та Тест --- */
+.main-content {
+    padding-top: 40px;
+    padding-bottom: 20px;
+}
+
+.main-content h2 {
+    color: #3498db; /* Акцентний колір для заголовків */
+    margin-bottom: 15px;
+    border-left: 5px solid #2c3e50;
+    padding-left: 15px;
+}
+
+.test-container {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+/* --- 5. Адаптивність Iframe (Ключовий Елемент) --- */
+.responsive-iframe {
+    width: 100%; /* Займає всю ширину батьківського контейнера */
+    height: 700px; /* Фіксована висота, яку можна змінити залежно від тесту */
+    border: none;
+    display: block;
+}
+
+/* --- 6. Медіазапити (Адаптивний Дизайн) --- */
+@media (max-width: 768px) {
+    /* Налаштування для планшетів */
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header {
+        padding: 30px 0;
+    }
+
+    .main-content h2 {
+        font-size: 1.5em;
+    }
+    
+    .test-container {
+        padding: 10px;
+        /* Зменшуємо тіні для мобільних пристроїв */
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); 
+    }
+    
+    .responsive-iframe {
+        /* Зменшуємо висоту фрейму для комфортного перегляду на мобільних */
+        height: 600px; 
+    }
+}
+
+@media (max-width: 480px) {
+    /* Налаштування для смартфонів */
+    body {
+        font-size: 14px;
+    }
+    
+    .header h1 {
+        font-size: 1.8em;
+    }
+    
+    .responsive-iframe {
+        /* Мінімальна висота для смартфонів */
+        height: 500px; 
+    }
+}
